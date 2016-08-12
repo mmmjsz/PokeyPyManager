@@ -23,6 +23,7 @@ import os
 import sys
 import atexit
 import random
+import os.path
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 
@@ -108,7 +109,7 @@ def release():
                         time.sleep(int(config.get('CONFIG','evolveDelay')) + random.randint(1, 5))
                     #logging.critical(inventory.party)
                 elif action.find("Favorite") > -1:
-                    logging.critical("Found pokemon. Toggling favorite.")
+                    logging.critical("Found pokemon with ID " + str(inventory.party[poke].id) + ". Toggling favorite.")
                     if inventory.party[poke].favorite:
                         logging.critical(session.setFavoritePokemon(inventory.party[poke],False))
                     else:
@@ -127,7 +128,39 @@ def release():
 @app.route('/inventory')
 def inventory():
     global released
-    inventory = session.getInventory()
+    global firstRun
+    global inventory
+    
+    refresh = request.args.get('refresh',0)
+    
+    ivPath = "static/inventory.json"
+    needToSaveJson = False
+    #first run, fetch fresh inventory data
+    if firstRun == True:
+        inventory = session.getInventory()
+        needToSaveJson = True #we got fresh inventory data, update cache file
+        firstRun = False
+    
+    else:
+        if os.path.isfile(ivPath):
+            lastModified = int(round(os.stat(ivPath).st_mtime))
+            currentTime = int(round(time.time()))
+            ageOfJsonFile = currentTime - lastModified
+            if ageOfJsonFile > int(config.get('CONFIG','inventoryAgeThreshold')) or refresh == 'true': #cached inventory is older than 5 min, let's request fresh data.
+                inventory = session.getInventory()
+                needToSaveJson = True #we got fresh inventory data, update cache file
+                if refresh == 'true':
+                    logging.info("User requested fresh data. Let's give it to them!")
+                else:
+                
+                    logging.info("Cached inventory data is getting stale...let's refresh it.")
+            else:
+                logging.info("We have cached inventory data that is only " + str(ageOfJsonFile) + " seconds old. Let's work with that.")
+        else: #no JSON file exists, let's get that fresh data
+            inventory = session.getInventory()
+            needToSaveJson = True #we got fresh inventory data, update cache file
+        
+        
     pokes = []
     #id: 2436312686824190668
     #pokemon_id: EEVEE
@@ -218,11 +251,15 @@ def inventory():
         
     
     
-    
-    json.dump(pokes, open('static/inventory.json', 'w'))
+    if needToSaveJson == True:
+        json.dump(pokes, open('static/inventory.json', 'w'))
+        logging.info("Updating inventory.json")
     #logging.critical(inventory)
     #logging.critical(inventory)
-    return render_template('inventory.html')
+    if refresh == 'true':
+        return render_template('inventoryTimeout.html')
+    else:
+        return render_template('inventory.html')
     
 @app.route('/')
 def index():
@@ -311,6 +348,10 @@ if __name__ == '__main__':
     sortBy = 'cp'
     global released
     released = False
+    global firstRun
+    firstRun = True
+    
+    inventory = []
     data = [{'status':'Server startup. Nothing to report.'}]
     json.dump(data, open('static/catch_data.json', 'w'))
     time.sleep(1)
