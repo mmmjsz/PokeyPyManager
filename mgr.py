@@ -37,6 +37,7 @@ app = Flask(__name__)
 def release():
     global released
     global sortBy
+    global firstRun
     inventory = session.getInventory()
     
     #id: 2436312686824190668
@@ -122,6 +123,7 @@ def release():
                 
                     
     released = True                
+    firstRun = True
     return render_template('inventoryTimeout.html')
     
 
@@ -162,24 +164,7 @@ def inventory():
         
         
     pokes = []
-    #id: 2436312686824190668
-    #pokemon_id: EEVEE
-    #cp: 46
-    #stamina: 19
-    #stamina_max: 19
-    #move_1: TACKLE_FAST
-    #move_2: DIG
-    #height_m: 0.297532558441
-    #weight_kg: 8.24643802643
-    #individual_attack: 15
-    #individual_defense: 12
-    #individual_stamina: 9
-    #cp_multiplier: 0.166397869587
-    #pokeball: ITEM_POKE_BALL
-    #captured_cell_id: 6108423709528162304
-    #creation_time_ms: 1469364470778
-    
-    
+ 
     for poke in range(0,len(inventory.party)):
         
     
