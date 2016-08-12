@@ -1,5 +1,5 @@
-<font color=red size=4>***LATEST COMMIT REQUIRES YOU TO RUN PIP INSTALL -R REQUIREMENTS.TXT AGAIN :)***</font>
-
+DISCLAIMER: Since this interacts with the PoGo servers to fetch data / perform evovlves/releases/renames, it is possible to be banned. If you are not comfortable with this possibility, please do not use this tool
+============
 
 PokeyPy Manager
 ============
@@ -7,7 +7,7 @@ PokeyPy Manager
 PokeyPy Manager is a tool which allows you to manage your Pokemon in Pokemon Go. It utilizes https://github.com/rubenvereecken/pokemongo-api to gather information and to perform management actions
 such as releasing/evolving/renaming Pokemon.
 
-<b>DISCLAIMER: Since this interacts with the PoGo servers to fetch data / perform evovlves/releases/renames, it is possible to be banned. If you are not comfortable with this possibility, please do not use this tool</b>
+
 
 Features
 --------
