@@ -29,9 +29,8 @@ Instructions
 - Open Command Prompt/Terminal/equivalent
 - Navigate to the root of the PokeyPySnipe directory
 - Run ```pip install -r requirements.txt```
-- Navigate to the ```pogo``` directory
 - Duplicate ```config.ini.example``` and rename it to ```config.ini```, edit it with your options
-- Run ```python mgr.py```
+- Run ```python mgr.py``` or ````launch.bat```` (running launch.bat will auto-open a browser after 10 sec. skip next step)
 - Open http://127.0.0.1:5100 in your browser  
 
 Building and running with Docker
