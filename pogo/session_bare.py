@@ -1,3 +1,5 @@
+import time
+rateTryAgain = 0
 # Load Generated Protobuf
 from POGOProtos.Networking.Envelopes import (
     Unknown6_pb2 as Unknown6,
@@ -280,6 +282,7 @@ class PogoSessionBare(object):
             logging.error(e)
 
     def wrapAndRequest(self, payload, defaults=True):
+        global rateTryAgain
         res = self.request(self.wrapInRequest(payload, defaults=defaults))
         if res is None:
             logging.critical(res)
@@ -296,6 +299,14 @@ class PogoSessionBare(object):
 
         # Rate Limited
         if res.status_code == 52:
+            #try again
+            while rateTryAgain <= 3:
+            
+                logging.critical("Just refreshed session, rate limited wait 5 sec, trying again " + str(rateTryAgain) + "/ of 3 times.")
+                time.sleep(5)
+                rateTryAgain = rateTryAgain + 1
+                return self.wrapAndRequest(payload, defaults=defaults)
+            rateTryAgain = 0
             raise PogoRateException(ERROR_RATE)
 
         if defaults:
