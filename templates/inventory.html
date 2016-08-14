@@ -85,7 +85,9 @@
             align: center;
             background-color: white;
             box-shadow: 0 3px 50px 0 rgba(0, 0, 0, 0.08), 0 6px 10px 0 rgba(0, 0, 0, 0.09);
-        }
+			border: 1px black solid;
+			border-radius:5px;
+		}
     }
     #all {
         width: 100%;
@@ -216,7 +218,7 @@ progress[role] strong {
             <a href="#" class="brand-logo center">PokeyPy Manager</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/">Dashboard</a></li>
-
+				
                 <li><a href="/inventory">PokeManager</a></li>
 
             </ul>
@@ -240,6 +242,7 @@ progress[role] strong {
 			 <input type="button" id="advFilter" onclick="document.getElementById('advFilterModal').style.display = 'block'" value="Advanced Filter">
 			 <input type="button" id="selectAll" onclick="selectAllPokes()" value="Select All">
 			 <a href="inventory?refresh=true"><button id="refresh" type="button" >Refresh Data</button></a>
+			 <span id="numSelected" style="padding-left:30px;"></span>
 			 <br>
 			 <input type="hidden" id="pokeID" name="pokeID">
 			<input type=submit style="background-color:  #ff5c33;" value="Favorite Selected" name="action">&nbsp;
@@ -316,10 +319,12 @@ progress[role] strong {
             if (selectedPokes.indexOf(id.parentElement.parentElement.id) == -1) {
                 selectedPokes.push(id.parentElement.parentElement.id);
                 id.parentElement.parentElement.style.background = 'rgba(255,0,0,.1)';
+				id.parentElement.parentElement.style.border = "2px red solid";
 
             } else {
                 selectedPokes.splice(selectedPokes.indexOf(id.parentElement.parentElement.id), 1);
                 id.parentElement.parentElement.style.background = 'rgba(255,255,255,1)';
+				id.parentElement.parentElement.style.border = "1px black solid";
             }
 
 
@@ -332,7 +337,7 @@ progress[role] strong {
 
             //push selected pokemon to hidden text field for transmittal to python script
             document.getElementById("pokeID").value = selectedPokes;
-
+			document.getElementById("numSelected").innerHTML = selectedPokes.length + " of " + party.length + " selected";
 
 
         }
@@ -341,7 +346,7 @@ progress[role] strong {
 
             
             party = data;
-
+	
             sortPokes();
         }
 
@@ -349,7 +354,7 @@ progress[role] strong {
 
         //sort pokemon by id,pokemon_id,cp,stamina,stamina_max,move_1,move_2,etc.
         function sortPokes() {
-			
+			document.getElementById("numSelected").innerHTML = "0 of " + party.length + " selected";
 			selectedPokes = [];
 			document.getElementById("pokeID").value = selectedPokes; 
 			var squareCount = 0;
@@ -432,7 +437,8 @@ progress[role] strong {
                 }
             }
 
-            if (squareCount % 5 <= 2 || squareCount < 5) {
+            if (squareCount % 5 <= 2 && squareCount % 5 != 0 || squareCount < 5 ) {
+			
                 squareCount = (5 - (squareCount % 5)) + squareCount;
 
                 if (squareCount == 5) {
@@ -452,7 +458,7 @@ progress[role] strong {
             document.getElementById('pokemonName').value = "";
             document.getElementById('ivThreshold').value = 0;
             document.getElementById('cpThreshold').value = 0;
-
+			
 
         }
 
