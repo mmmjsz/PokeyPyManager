@@ -302,8 +302,8 @@ class PogoSessionBare(object):
             #try again
             while rateTryAgain <= 3:
             
-                logging.critical("Just refreshed session, rate limited wait 5 sec, trying again " + str(rateTryAgain) + "/ of 3 times.")
-                time.sleep(5)
+                logging.critical("Just refreshed session, rate limited wait 1 sec, trying again " + str(rateTryAgain) + "/ of 3 times.")
+                time.sleep(1)
                 rateTryAgain = rateTryAgain + 1
                 return self.wrapAndRequest(payload, defaults=defaults)
             rateTryAgain = 0
