@@ -267,7 +267,7 @@
             <font style="margin-left:20px;" face=arial>IV (%)&nbsp;&nbsp;&nbsp;&nbsp; <select style="width:80px;display:inline;font-size:15px;" id="ivOper"><option> > </option> <option> >= </option> <option> < </option> <option> <= </option> <option> == </option> </select> &nbsp;&nbsp;&nbsp;&nbsp;<input value=0 style="margin-top:20px;margin-left:10px;width:70px;" id="ivThreshold"> &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <font size=5>AND</font>&nbsp;&nbsp;
-                <font style="margin-left:20px;" face=arial>Pokemon Name &nbsp; <b>==</b> <input style="margin-top:20px;margin-left:10px;width:150px;" id="pokemonName">
+                <font style="margin-left:20px;" face=arial>Pokemon Name &nbsp; <b>==</b> <select style="padding-left:15px;width:150px;" id="pokemonName"><option>Abra</option><option>Aerodactyl</option><option>Alakazam</option><option>Arbok</option><option>Arcanine</option><option>Articuno</option><option>Beedrill</option><option>Bellsprout</option><option>Blastoise</option><option>Bulbasaur</option><option>Butterfree</option><option>Caterpie</option><option>Chansey</option><option>Charizard</option><option>Charmander</option><option>Charmeleon</option><option>Clefable</option><option>Clefairy</option><option>Cloyster</option><option>Cubone</option><option>Dewgong</option><option>Diglett</option><option>Ditto</option><option>Dodrio</option><option>Doduo</option><option>Dragonair</option><option>Dragonite</option><option>Dratini</option><option>Drowzee</option><option>Dugtrio</option><option>Eevee</option><option>Ekans</option><option>Electabuzz</option><option>Electrode</option><option>Exeggcute</option><option>Exeggutor</option><option>Farfetchd</option><option>Fearow</option><option>Flareon</option><option>Gastly</option><option>Gengar</option><option>Geodude</option><option>Gloom</option><option>Golbat</option><option>Goldeen</option><option>Golduck</option><option>Golem</option><option>Graveler</option><option>Grimer</option><option>Growlithe</option><option>Gyarados</option><option>Haunter</option><option>Hitmonchan</option><option>Hitmonlee</option><option>Horsea</option><option>Hypno</option><option>Ivysaur</option><option>Jigglypuff</option><option>Jolteon</option><option>Jynx</option><option>Kabuto</option><option>Kabutops</option><option>Kadabra</option><option>Kakuna</option><option>Kangaskhan</option><option>Kingler</option><option>Koffing</option><option>Krabby</option><option>Lapras</option><option>Lickitung</option><option>Machamp</option><option>Machoke</option><option>Machop</option><option>Magikarp</option><option>Magmar</option><option>Magnemite</option><option>Magneton</option><option>Mankey</option><option>Marowak</option><option>Meowth</option><option>Metapod</option><option>Mew</option><option>Mewtwo</option><option>Moltres</option><option>Mr-mime</option><option>Muk</option><option>Nidoking</option><option>Nidoqueen</option><option>Nidoran-f</option><option>Nidoran-m</option><option>Nidorina</option><option>Nidorino</option><option>Ninetales</option><option>Oddish</option><option>Omanyte</option><option>Omastar</option><option>Onix</option><option>Paras</option><option>Parasect</option><option>Persian</option><option>Pidgeot</option><option>Pidgeotto</option><option>Pidgey</option><option>Pikachu</option><option>Pinsir</option><option>Poliwag</option><option>Poliwhirl</option><option>Poliwrath</option><option>Ponyta</option><option>Porygon</option><option>Primeape</option><option>Psyduck</option><option>Raichu</option><option>Rapidash</option><option>Raticate</option><option>Rattata</option><option>Rhydon</option><option>Rhyhorn</option><option>Sandshrew</option><option>Sandslash</option><option>Scyther</option><option>Seadra</option><option>Seaking</option><option>Seel</option><option>Shellder</option><option>Slowbro</option><option>Slowpoke</option><option>Snorlax</option><option>Spearow</option><option>Squirtle</option><option>Starmie</option><option>Staryu</option><option>Tangela</option><option>Tauros</option><option>Tentacool</option><option>Tentacruel</option><option>Vaporeon</option><option>Venomoth</option><option>Venonat</option><option>Venusaur</option><option>Victreebel</option><option>Vileplume</option><option>Voltorb</option><option>Vulpix</option><option>Wartortle</option><option>Weedle</option><option>Weepinbell</option><option>Weezing</option><option>Wigglytuff</option><option>Zapdos</option><option>Zubat</option></select>
                     <br>
                     <center><button id="filter" type="button" onclick="sortPokes()">Filter Pokemon</button> <button id="closeModal" type="button" onclick="document.getElementById('advFilterModal').style='display:none;'">Cancel</button></center>
     </div>
@@ -279,7 +279,7 @@
         var squareCount = 0;
         var selectedPokes = []
         var pokes = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"];
-
+		var sortedParty = []
         function loadJSON(path, success, error) {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
@@ -354,7 +354,7 @@
 
         //sort pokemon by id,pokemon_id,cp,stamina,stamina_max,move_1,move_2,etc.
         function sortPokes() {
-
+			
             selectedPokes = [];
             document.getElementById("pokeID").value = selectedPokes;
             squareCount = 0;
@@ -421,6 +421,8 @@
 
                             document.getElementById('inventory').appendChild(content);
                             squareCount = squareCount + 1;
+							
+							
 
                         }
 
@@ -435,6 +437,8 @@
                     if (eval(String('cpEval == true') + document.getElementById("andOr").value + " " + String('ivEval == true')) == true) {
                         document.getElementById('inventory').appendChild(content);
                         squareCount = squareCount + 1;
+						
+							
 
                     }
 
@@ -447,9 +451,9 @@
 
             var adjSquareCount = squareCount;
 
-            if (adjSquareCount % 5 <= 2 && adjSquareCount % 5 != 0 || adjSquareCount < 5) {
+            if (adjSquareCount % 5 <= 3 && adjSquareCount % 5 != 0 || adjSquareCount < 5) {
 
-                adjSquareCount = (5 - (adjSquareCount % 5)) + adjSquareCount;
+                adjSquareCount = (5 - (5- (adjSquareCount % 5))) + adjSquareCount;
 
                 if (adjSquareCount == 5) {
                     document.getElementById('inventory').style.height = ((adjSquareCount / 5) * 400) + 130
