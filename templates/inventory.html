@@ -23,7 +23,6 @@
     </script>
 
     <style>
-	
     input[type=text],
         select {
             width: 100%;
@@ -33,7 +32,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-			font-size: 12px;
+            font-size: 12px;
         }
         
         input[type=submit],
@@ -47,7 +46,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-			text-align:center;
+            text-align: center;
         }
         
         input[type=submit],
@@ -85,9 +84,9 @@
             align: center;
             background-color: white;
             box-shadow: 0 3px 50px 0 rgba(0, 0, 0, 0.08), 0 6px 10px 0 rgba(0, 0, 0, 0.09);
-			border: 1px black solid;
-			border-radius:5px;
-		}
+            border: 1px black solid;
+            border-radius: 5px;
+        }
     }
     #all {
         width: 100%;
@@ -138,7 +137,6 @@
         color: white;
         text-decoration: none;
     }
-
     /* The Modal (background) */
     .modal {
         display: none;
@@ -152,10 +150,10 @@
         
         top: 40%;
         margin: 0 auto;
-        width: 800px;
+        width: 1100px;
         /* Full width */
         
-        height: 200px;
+        height: 250px;
         /* Full height */
         
         overflow: auto;
@@ -167,39 +165,35 @@
         background-color: rgb(255, 255, 255, .5);
         /* Black w/ opacity */
     }
-	
-	progress, /* All HTML5 progress enabled browsers */
-progress[role] /* polyfill */ {
-
-    /* Turns off styling - not usually needed, but good to know. */
-    appearance: none; -
-    moz - appearance: none; -
-    webkit - appearance: none;
-
-    /* gets rid of default border in Firefox and Opera. */
-    border: none;
-
-    /* Needs to be in here for Safari polyfill so background images work as expected. */
-    background - size: auto;
-
-    /* Dimensions */
-    width: 400 px;
-    height: 10 px;
-
-}
-
-/* Polyfill */
-progress[role]: after {
-    background - image: none; /* removes default background from polyfill */
-}
-
-/* Ensure fallback text doesn't appear in polyfill */
-progress[role] strong {
-    display: none;
-}
-
-
-
+    progress,
+    /* All HTML5 progress enabled browsers */
+    progress[role]/* polyfill */
+    {
+        /* Turns off styling - not usually needed, but good to know. */
+        
+        appearance: none;
+        - moz - appearance: none;
+        - webkit - appearance: none;
+        /* gets rid of default border in Firefox and Opera. */
+        
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        
+        background - size: auto;
+        /* Dimensions */
+        
+        width: 400 px;
+        height: 10 px;
+    }
+    /* Polyfill */
+    progress[role]: after {
+        background - image: none;
+        /* removes default background from polyfill */
+    }
+    /* Ensure fallback text doesn't appear in polyfill */
+    progress[role] strong {
+        display: none;
+    }
     </style>
 
 
@@ -218,13 +212,13 @@ progress[role] strong {
             <a href="#" class="brand-logo center">PokeyPy Manager</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/">Dashboard</a></li>
-				
+
                 <li><a href="/inventory">PokeManager</a></li>
 
             </ul>
         </div>
     </nav>
- 
+
     <div class="aboveInventory" id="aboveInventory">
         <br>
         <Center>
@@ -239,35 +233,41 @@ progress[role] strong {
 			<option value="favorite">Favorites</option>
 			
 			</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 <input type="button" id="advFilter" onclick="document.getElementById('advFilterModal').style.display = 'block'" value="Advanced Filter">
-			 <input type="button" id="selectAll" onclick="selectAllPokes()" value="Select All">
-			 <a href="inventory?refresh=true"><button id="refresh" type="button" >Refresh Data</button></a>
-			 <span id="numSelected" style="padding-left:30px;"></span>
-			 <br>
-			 <input type="hidden" id="pokeID" name="pokeID">
-			<input type=submit style="background-color:  #ff5c33;" value="Favorite Selected" name="action">&nbsp;
-			<input type=submit style="background-color:  #ff5c33;"  value="Release Selected" name="action">&nbsp;
-			<input type=submit style="background-color:  #ff5c33;"  value="Evolve Selected" name="action">&nbsp;
-			<input type=submit style="background-color:  #ff5c33;"  value="Rename Selected" name="action"> &nbsp;
-			<input type=submit style="background-color:  #ff5c33;"  value="PowerUp Selected" name="action">&nbsp;
-	
-				 </form>
+                <input type="button" id="advFilter" onclick="document.getElementById('advFilterModal').style.display = 'block'" value="Advanced Filter">
+                <input type="button" id="selectAll" onclick="selectAllPokes()" value="Select All">
+                <a href="inventory?refresh=true"><button id="refresh" type="button" >Refresh Data</button></a>
+                <span id="numSelected" style="padding-left:30px;"></span>
+                <br>
+                <input type="hidden" id="pokeID" name="pokeID">
+                <input type=submit style="background-color:  #ff5c33;" value="Favorite Selected" name="action">&nbsp;
+                <input type=submit style="background-color:  #ff5c33;" value="Release Selected" name="action">&nbsp;
+                <input type=submit style="background-color:  #ff5c33;" value="Evolve Selected" name="action">&nbsp;
+                <input type=submit style="background-color:  #ff5c33;" value="Rename Selected" name="action"> &nbsp;
+                <input type=submit style="background-color:  #ff5c33;" value="PowerUp Selected" name="action">&nbsp;
+
+            </form>
 
 
         </center>
         <br>
     </div>
-	
+
     <div class="inventory" id="inventory">
         <br><br><br><br><br><br>
     </div>
-	
+
     <div id="advFilterModal" class="modal">
-        <font style="margin-left:20px;" face=arial>CP Threshold <input value=0 style="margin-top:20px;margin-left:10px;width:100px;" id="cpThreshold">
+        <center><br>
+            <font size=5 face=arial>Advanced Filter</font>
+        </center><br>
 
-            <font style="margin-left:20px;" face=arial>IV Threshold (%)<input value=0 style="margin-top:20px;margin-left:10px;width:100px;" id="ivThreshold">
 
-                <font style="margin-left:20px;" face=arial>Pokemon Name <input style="margin-top:20px;margin-left:10px;width:100px;" id="pokemonName">
+        <font style="margin-left:20px;" face=arial>CP&nbsp;&nbsp;&nbsp;&nbsp; <select style="width:80px;display:inline;font-size:15px;" id="cpOper"><option> > </option> <option> >= </option> <option> < </option> <option> <= </option> <option> == </option> </select> &nbsp;&nbsp;&nbsp;&nbsp;<input value=0 style="margin-top:20px;margin-left:10px;width:70px;" id="cpThreshold"> &nbsp;&nbsp;&nbsp;&nbsp;
+            <select style="width:100px;display:inline;font-size:15px;" id="andOr"><option value="||">OR</option><option value="&&">AND</option></select>
+            <font style="margin-left:20px;" face=arial>IV (%)&nbsp;&nbsp;&nbsp;&nbsp; <select style="width:80px;display:inline;font-size:15px;" id="ivOper"><option> > </option> <option> >= </option> <option> < </option> <option> <= </option> <option> == </option> </select> &nbsp;&nbsp;&nbsp;&nbsp;<input value=0 style="margin-top:20px;margin-left:10px;width:70px;" id="ivThreshold"> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <font size=5>AND</font>&nbsp;&nbsp;
+                <font style="margin-left:20px;" face=arial>Pokemon Name &nbsp; <b>==</b> <input style="margin-top:20px;margin-left:10px;width:150px;" id="pokemonName">
                     <br>
                     <center><button id="filter" type="button" onclick="sortPokes()">Filter Pokemon</button> <button id="closeModal" type="button" onclick="document.getElementById('advFilterModal').style='display:none;'">Cancel</button></center>
     </div>
@@ -276,9 +276,9 @@ progress[role] strong {
     <script type="text/javascript">
         <!--
         var party = []
-
+        var squareCount = 0;
         var selectedPokes = []
-
+        var pokes = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"];
 
         function loadJSON(path, success, error) {
             var xhr = new XMLHttpRequest();
@@ -299,7 +299,7 @@ progress[role] strong {
 
         function sortByKey(array, key) {
             if (key == 'cp' || key == 'iv' || key == 'creation_time_ms') {
-			
+
                 return array.sort(function(b, a) {
                     var x = a[key];
                     var y = b[key];
@@ -319,12 +319,12 @@ progress[role] strong {
             if (selectedPokes.indexOf(id.parentElement.parentElement.id) == -1) {
                 selectedPokes.push(id.parentElement.parentElement.id);
                 id.parentElement.parentElement.style.background = 'rgba(255,0,0,.1)';
-				id.parentElement.parentElement.style.border = "2px red solid";
+                id.parentElement.parentElement.style.border = "2px red solid";
 
             } else {
                 selectedPokes.splice(selectedPokes.indexOf(id.parentElement.parentElement.id), 1);
                 id.parentElement.parentElement.style.background = 'rgba(255,255,255,1)';
-				id.parentElement.parentElement.style.border = "1px black solid";
+                id.parentElement.parentElement.style.border = "1px black solid";
             }
 
 
@@ -337,16 +337,16 @@ progress[role] strong {
 
             //push selected pokemon to hidden text field for transmittal to python script
             document.getElementById("pokeID").value = selectedPokes;
-			document.getElementById("numSelected").innerHTML = selectedPokes.length + " of " + party.length + " selected";
+            document.getElementById("numSelected").innerHTML = selectedPokes.length + " of " + squareCount + " selected";
 
 
         }
 
         function sculpt(data) {
 
-            
+
             party = data;
-	
+
             sortPokes();
         }
 
@@ -354,20 +354,20 @@ progress[role] strong {
 
         //sort pokemon by id,pokemon_id,cp,stamina,stamina_max,move_1,move_2,etc.
         function sortPokes() {
-			document.getElementById("numSelected").innerHTML = "0 of " + party.length + " selected";
-			selectedPokes = [];
-			document.getElementById("pokeID").value = selectedPokes; 
-			var squareCount = 0;
+
+            selectedPokes = [];
+            document.getElementById("pokeID").value = selectedPokes;
+            squareCount = 0;
             document.getElementById('advFilterModal').style.display = "none";
             key = document.getElementById('sortBy').value;
-			var d = new Date();
-			var curTime = d.getTime()/1000; 
-			
-			if (parseInt(curTime) - parseInt(party[0].timeStamp) < 120){
-			key = party[0].sortBy;
-			document.getElementById('sortBy').value = key;
-			} else {}
-			
+            var d = new Date();
+            var curTime = d.getTime() / 1000;
+
+            if (parseInt(curTime) - parseInt(party[0].timeStamp) < 120) {
+                key = party[0].sortBy;
+                document.getElementById('sortBy').value = key;
+            } else {}
+
             document.getElementById('inventory').innerHTML = origInventory;
             sortByKey(party, key);
 
@@ -403,62 +403,72 @@ progress[role] strong {
                 if (party[i].reqCandies == 0) {
                     var candyString = party[i].candies + ' ' + ucFirst(party[i].candyFamily) + ' Candies';
                 } else {
-					
+
                     var candyString = party[i].candies + '/' + party[i].reqCandies + ' ' + ucFirst(party[i].candyFamily) + ' Candies';
                 }
                 content.innerHTML = '<font face=arial size=4 color=navy> <center>' + party[i].cp + ' CP | ' + Math.round(party[i].iv * 100) + '% IV</b><img  src="static/avatars/' + party[i].favorite + '" width=30 height=29 style="float:right;display:inline;position:absolute;right:10px ;"></font><br><font face=arial style="font-size:11px;"><b>Atk: </b>' + party[i].individual_attack + '<b>&nbsp;&nbsp;&nbsp;Def: </b>' + party[i].individual_defense + '<b>&nbsp;&nbsp;&nbsp;Sta: </b>' + party[i].individual_stamina + '</font></center><center><img class="pokeSquare" style="padding:10px;" onclick=\"javascript:selectPoke(this);\" height=120 width=120 src=static/avatars/' + party[i].pokemon_id + '.png> </center>\
-	<font size=4 face=arial><center>' + ucFirst(party[i].pokemon_name) + '</font><br><progress style="height:10px;width:80%;" value=' + party[i].stamina +' max=' + party[i].stamina_max +'></progress><br><font size=2>HP ' + party[i].stamina + '/' + party[i].stamina_max + '</center><b>' + party[i].move_1 + '</b><b  style="float:right;padding-right:10px;">' + party[i].move_1_dmg + '</b><br><i>' + party[i].move_1_type + '<br></i><b>' + party[i].move_2 + '</b><b  style="float:right;padding-right:10px;">' + party[i].move_2_dmg + '</b><br><i>' + party[i].move_2_type + '<br><br></i><b><center><img style="display:inline;position:relative;bottom:5px;" width=20 height=20 src=static/avatars/candy.png><font style="position:relative;bottom:10px;margin-bottom:15px;" color=navy face=arial size=2>' + candyString + '</font><br></center></b>\
+	<font size=4 face=arial><center>' + ucFirst(party[i].pokemon_name) + '</font><br><progress style="height:10px;width:80%;" value=' + party[i].stamina + ' max=' + party[i].stamina_max + '></progress><br><font size=2>HP ' + party[i].stamina + '/' + party[i].stamina_max + '</center><b>' + party[i].move_1 + '</b><b  style="float:right;padding-right:10px;">' + party[i].move_1_dmg + '</b><br><i>' + party[i].move_1_type + '<br></i><b>' + party[i].move_2 + '</b><b  style="float:right;padding-right:10px;">' + party[i].move_2_dmg + '</b><br><i>' + party[i].move_2_type + '<br><br></i><b><center><img style="display:inline;position:relative;bottom:5px;" width=20 height=20 src=static/avatars/candy.png><font style="position:relative;bottom:10px;margin-bottom:15px;" color=navy face=arial size=2>' + candyString + '</font><br></center></b>\
 	<br>'
 
                 if (document.getElementById('pokemonName').value != '') {
 
-                    if (document.getElementById('pokemonName').value.toUpperCase() == party[i].pokemon_name.toUpperCase()) {
+                    if (document.getElementById('pokemonName').value.toUpperCase() == pokes[parseInt(party[i].pokemon_id) - 1].toUpperCase()) {
 
-                        if (document.getElementById('ivThreshold').value != '') {
-                            if (party[i].iv * 100 >= parseInt(document.getElementById('ivThreshold').value) && party[i].cp >= parseInt(document.getElementById('cpThreshold').value))
-                                document.getElementById('inventory').appendChild(content);
-                            squareCount = squareCount + 1;
-                        } else {
+                        var ivEval = eval(String((party[i].iv * 100)) + document.getElementById("ivOper").value + document.getElementById('ivThreshold').value);
+                        var cpEval = eval(party[i].cp + document.getElementById("ivOper").value + document.getElementById('cpThreshold').value);
+
+                        if (eval(String('cpEval == true') + document.getElementById("andOr").value + " " + String('ivEval == true')) == true && document.getElementById('pokemonName').value.toUpperCase() == pokes[parseInt(party[i].pokemon_id) - 1].toUpperCase()) {
+
                             document.getElementById('inventory').appendChild(content);
                             squareCount = squareCount + 1;
+
                         }
+
+
+
+
                     }
                 } else {
+                    var ivEval = eval(String((party[i].iv * 100)) + document.getElementById("ivOper").value + document.getElementById('ivThreshold').value);
+                    var cpEval = eval(party[i].cp + document.getElementById("ivOper").value + document.getElementById('cpThreshold').value);
 
-                    if (document.getElementById('ivThreshold').value != '') {
-                        if (party[i].iv * 100 >= parseInt(document.getElementById('ivThreshold').value) && party[i].cp >= parseInt(document.getElementById('cpThreshold').value))
-                            document.getElementById('inventory').appendChild(content);
-                        squareCount = squareCount + 1;
-                    } else {
+                    if (eval(String('cpEval == true') + document.getElementById("andOr").value + " " + String('ivEval == true')) == true) {
                         document.getElementById('inventory').appendChild(content);
                         squareCount = squareCount + 1;
+
                     }
 
+
+
                 }
+
             }
 
-            if (squareCount % 5 <= 2 && squareCount % 5 != 0 || squareCount < 5 ) {
-			
-                squareCount = (5 - (squareCount % 5)) + squareCount;
 
-                if (squareCount == 5) {
-                    document.getElementById('inventory').style.height = ((squareCount / 5) * 400) + 130
+            var adjSquareCount = squareCount;
+
+            if (adjSquareCount % 5 <= 2 && adjSquareCount % 5 != 0 || adjSquareCount < 5) {
+
+                adjSquareCount = (5 - (adjSquareCount % 5)) + adjSquareCount;
+
+                if (adjSquareCount == 5) {
+                    document.getElementById('inventory').style.height = ((adjSquareCount / 5) * 400) + 130
                 } else {
-                    document.getElementById('inventory').style.height = ((squareCount / 5) * 400);
+                    document.getElementById('inventory').style.height = ((adjSquareCount / 5) * 400);
                 }
-            } else if (squareCount == 5) {
-                document.getElementById('inventory').style.height = ((squareCount / 5) * 400) + 130
+            } else if (adjSquareCount == 5) {
+                document.getElementById('inventory').style.height = ((adjSquareCount / 5) * 400) + 130
             } else {
-                document.getElementById('inventory').style.height = ((squareCount / 5) * 400);
+                document.getElementById('inventory').style.height = ((adjSquareCount / 5) * 400);
             }
 
 
 
-
+            document.getElementById("numSelected").innerHTML = "0 of " + squareCount + " selected";
             document.getElementById('pokemonName').value = "";
             document.getElementById('ivThreshold').value = 0;
             document.getElementById('cpThreshold').value = 0;
-			
+
 
         }
 
