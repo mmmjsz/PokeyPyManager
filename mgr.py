@@ -24,8 +24,7 @@ import sys
 import atexit
 import random
 import os.path
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.triggers.interval import IntervalTrigger
+
 
 app = Flask(__name__)
 
